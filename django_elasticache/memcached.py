@@ -104,6 +104,10 @@ class ElastiCache(PyLibMCCache):
         return client
 
     @invalidate_cache_after_error
+    def add(self, *args, **kwargs):
+        return super(ElastiCache, self).add(*args, **kwargs)
+
+    @invalidate_cache_after_error
     def get(self, *args, **kwargs):
         return super(ElastiCache, self).get(*args, **kwargs)
 
@@ -120,5 +124,17 @@ class ElastiCache(PyLibMCCache):
         return super(ElastiCache, self).set_many(*args, **kwargs)
 
     @invalidate_cache_after_error
+    def incr(self, *args, **kwargs):
+        return super(ElastiCache, self).incr(*args, **kwargs)
+
+    @invalidate_cache_after_error
+    def touch(self, *args, **kwargs):
+        return super(ElastiCache, self).touch(*args, **kwargs)
+
+    @invalidate_cache_after_error
     def delete(self, *args, **kwargs):
         return super(ElastiCache, self).delete(*args, **kwargs)
+
+    @invalidate_cache_after_error
+    def delete_many(self, *args, **kwargs):
+        return super(ElastiCache, self).delete_many(*args, **kwargs)
